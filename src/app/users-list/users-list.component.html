@@ -1,0 +1,19 @@
+<p>
+  {{innerComponent}}
+</p>
+
+<label for="username">Username: 
+  <input type="text" #username name="username"
+  [(ngModel)]="newUserData.name">
+</label><br>
+<label for="userage">Age: 
+  <input type="text" #userage name="userage"
+  [(ngModel)]="newUserData.age">
+</label>
+<button (click)="addUser()">Add user!</button>
+
+<ul>
+  <li *ngFor="let user of users">
+    User name is: {{user.name}}. The age is: {{user.age}}
+  </li>
+</ul>

@@ -1,0 +1,7 @@
+<h1>
+  {{title}}
+</h1>
+
+<users-list [users]="Users" (addNewUser)="addUser($event)"></users-list>
+
+<button (click)="addUser($event)">Add user</button>
