@@ -1,0 +1,28 @@
+form {
+  width: 400px;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: aliceblue;
+}
+
+form > *:not(button) {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group > label:first-child {
+  width: 30%;
+}
+
+.form-group > input,
+.form-group > select {
+  width: 70%;
+}

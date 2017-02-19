@@ -1,0 +1,35 @@
+<form action="/" (ngSubmit)="createUser()">
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input type="text" name="name"
+      #name [(ngModel)]="user.name"
+      required>
+  </div>
+
+  <div class="form-group">
+    <label for="age">Age: </label>
+    <input type="number" name="age"
+      #age [(ngModel)]="user.age"
+      required>
+  </div>
+
+  <div class="form-group">
+    <label for="role">Role: </label>
+    <select name="role" #role
+      [(ngModel)]="user.role">
+      <option [value]="role.value"
+        *ngFor="let role of roles">{{role.title}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="gender">Gender: </label>
+    <label *ngFor="let gender of genders">
+      <input type="radio" name="gender" [value]="gender.value"
+        [(ngModel)]="user.gender"> 
+      {{gender.title}}
+    </label>
+  </div>
+
+  <button>Add new user</button>
+</form>

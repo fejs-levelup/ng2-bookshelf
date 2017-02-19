@@ -2,21 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UsersListComponent } from './users-list/users-list.component';
+import { AddUserFormComponent } from './add-user-form/add-user-form.component';
+
+import { UsersListService } from "./services/users-list.service";
+
+const appRoutes: Routes = [
+  {
+    path: "add-user", component: AddUserFormComponent
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersListComponent
+    AddUserFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ UsersListService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

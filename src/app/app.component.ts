@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UsersListService } from "./services/users-list.service";
+import { User } from "./utils/user";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,14 +10,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  users: User[];
 
-  Users = [
-    { name: "bob", age: 21 },
-    { name: "sara", age: 23 }
-  ];
+  constructor(
+    private usersListService: UsersListService,
+    private route: Router
+    ) {}
 
-  addUser(ev) {
-    console.log(ev);
-    this.Users.push(ev)
+  ngOnInit() {
+    this.users = this.usersListService.getUsers();
+  }
+
+  navigateToForm() {
+    this.route.navigate(["/add-user"]);
   }
 }

@@ -2,6 +2,20 @@
   {{title}}
 </h1>
 
-<users-list [users]="Users" (addNewUser)="addUser($event)"></users-list>
+<!-- <add-user-form></add-user-form> -->
+<!-- <nav>
+  <ul>
+    <li><a routerLink="/add-user">+ Add user</a></li>
+  </ul>
+</nav> -->
+<button (click)="navigateToForm()">Add user</button>
+<router-outlet></router-outlet>
 
-<button (click)="addUser($event)">Add user</button>
+<ul>
+  <li *ngFor="let user of users">
+    <b>Name: </b>{{user.name}}, 
+    <b>Age: </b>{{user.age}}, 
+    <b>Role: </b>{{user.role}}, 
+    <b>Gender: </b>{{user.gender}};
+  </li>
+</ul>
