@@ -1,0 +1,20 @@
+<nav>
+  <ul>
+    <li><a routerLink="/signin">Sign in</a></li>
+    <li><a routerLink="/signup">Sign up</a></li>
+  </ul>
+</nav>
+
+<h2>Login</h2>
+
+<form action="/" (ngSubmit)="signin()">
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" required><br>
+  <p [hidden]="email.valid || email.pristine">Email field is invalid</p>
+
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+  <p [hidden]="password.valid || password.pristine">Password field is invalid</p>
+  <br>
+  <button>Signin</button>
+</form>

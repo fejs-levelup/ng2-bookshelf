@@ -5,20 +5,36 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AddUserFormComponent } from './add-user-form/add-user-form.component';
 
 import { UsersListService } from "./services/users-list.service";
+import { SignupComponent } from './signup/signup.component';
+import { FirebaseService } from "./services/firebase.service";
+import { LoginComponent } from './login/login.component';
+import { BooksListComponent } from './books-list/books-list.component';
+import { NewBookComponent } from './new-book/new-book.component';
 
 const appRoutes: Routes = [
   {
-    path: "add-user", component: AddUserFormComponent
+    path: "signup", component: SignupComponent
+  },
+  {
+    path: "signin", component: LoginComponent
+  },
+  {
+    path: "books", component: BooksListComponent
+  },
+  {
+    path: "new-book", component: NewBookComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserFormComponent
+    SignupComponent,
+    LoginComponent,
+    BooksListComponent,
+    NewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +42,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ UsersListService ],
+  providers: [ UsersListService, FirebaseService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
